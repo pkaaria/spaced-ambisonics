@@ -84,9 +84,20 @@ Mic numbering for each preset is described below.
 
 The placement convention uses a right-hand mnemonic. Hold your right hand with thumb, index finger, and middle finger mutually perpendicular (like an x-y-z axis demo); the ring finger is treated as an implicit fourth direction. Each finger indicates the orientation of one capsule.
 
-### Alt-Azimuth (suspended from centre)
+## The two array designs
 
-The array hangs from a central point and the capsules splay outward. Use when you can rig from above and you want a symmetric distribution.
+Both designs mount on a standard microphone stand, but the geometries and use cases are different.
+
+### Alt-Azimuth (radial, outside-array only)
+
+A central 3D printed hub piece sits on top of the stand. Four threaded rods thread into the hub and radiate outward in the right-hand-rule tetrahedral pattern. Each rod terminates in a gripper that holds a capsule.
+
+"Forward" is whatever you want the front of the recording to be (typically the subject).
+
+- **Use case:** recording the space around the array. The array sits in the room and looks outward at the scene.
+- **Source mode in plugin:** `Normal`.
+- **Robustness:** the load is distributed across four rods meeting at a solid hub. Sturdier than the Stand-Mount design and the more forgiving choice for travel or field work.
+- **Limitation:** the radial layout fills the centre of the array, so there is no usable interior space. This design cannot be used for inside-array (inverse) recording.
 
 ![photo of the Alt-Azimuth array](images/array-alt-azimuth.jpg)
 *photo placeholder: Alt-Azimuth array assembled*
@@ -98,11 +109,15 @@ The array hangs from a central point and the capsules splay outward. Use when yo
 | 3   | middle         | left, down      |
 | 4   | ring (implied) | right, down     |
 
-"Forward" is whatever you want the front of the recording to be (typically the subject).
+### Stand-Mount (open tetrahedron, inside or outside)
 
-### Stand-Mount (Ch 3 down)
+The Mic 3 piece sits at the bottom of the assembly and carries the stand-mount thread. Mic 3 itself extends downward from this piece, pointing straight at the floor. The tetrahedron *builds upward* from the Mic 3 piece: aluminium rods connect the Mic 3 vertex to three upper vertex pieces, and additional rods connect the upper vertices to each other, forming the three upper edges of the tetrahedron. Mics 1, 2, and 4 sit on the upper vertices following the right-hand-rule layout (back/left, forward, and back/right respectively).
 
-One capsule points straight down so the array can mount on a standard mic stand through the bottom capsule's holder. Geometry is the right-hand layout rotated so the middle finger axis is vertical.
+The interior of the tetrahedron is hollow, which is what makes the inverse use case physically possible: you can place a source (a person, an instrument, a vibrating object) inside the array and record from four surrounding directions at once.
+
+- **Use case:** either recording the space around the array (outside-array) *or* recording a source placed inside the array (inside-array).
+- **Source mode in plugin:** `Normal` for outside-array, `Inverse` for inside-array.
+- **Robustness:** the tetrahedron is held together at the vertices by relatively thin aluminium rods, so this design is more fragile than the Alt-Azimuth and needs more care in handling.
 
 ![photo of the Stand-Mount array](images/array-stand-mount.jpg)
 *photo placeholder: Stand-Mount array assembled*
