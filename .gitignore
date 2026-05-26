@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.nfs*
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+.~lock.*
+
+# Reaper
+*.reapeaks
+*-bak.RPP
+*-bak.rpp
+
+# 3D slicer output (keep source .stl, .f3d, .step; ignore sliced output)
+*.gcode
+*.bgcode
+
+# Archives and temp files
+*.tmp
+*.log
+*.zip.tmp
