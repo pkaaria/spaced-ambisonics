@@ -147,7 +147,7 @@ The parts are sized to fit small printers. The reference build was printed on a 
 
 A detailed print and build guide will be added to `hardware/` later. Until then: files are STL ready to slice, PETG is what they have been tested in, and assembly is by hand around the threaded rod.
 
-> **Version one caveat.** These mounts are proof of concept parts. They work, they have been used in real sessions, and they are good enough to start recording. They are not finished objects. Even printed in PETG the pieces are somewhat fragile, wall thicknesses and stress relief are not yet tuned, and small drops can crack them. A v2 redesign focused on durability and assembly ergonomics is on the roadmap. Use the current files as a starting point and treat the parts gently.
+> **Version one caveat.** These mounts are proof of concept parts. They work, they have been used in real sessions, and they are good enough to start recording. They are not finished objects. Even printed in PETG the pieces are somewhat fragile, wall thicknesses and stress relief are not yet tuned. A v2 redesign focused on durability and assembly ergonomics is on the roadmap. Use the current files as a starting point and treat the parts gently.
 
 ## Plugin controls
 
@@ -221,11 +221,11 @@ Use it in commercial work. Attribution is appreciated but not required by the MI
 
 ## Support the project
 
-Development is carried by [FILL legal entity] Oy in Jyväskylä, Finland. The plugins are and will remain free and open source. Donations help fund hardware, build infrastructure, and continued development.
+Development is carried by Calm Base Oy in Jyväskylä, Finland. The plugins are and will remain free and open source. Donations help fund hardware, build infrastructure, and continued development.
 
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/[FILL])
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/pkaaria)
 
 ## Credits
 
-- [FILL author(s)]
+- Pyry Kääriä
 - Thanks to the wider open source ambisonic community for the tools and documentation that make work like this possible, particularly the IEM and SPARTA groups.
