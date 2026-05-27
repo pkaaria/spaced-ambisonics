@@ -27,7 +27,7 @@ Both designs mount on a standard microphone stand, but the geometries and use ca
 
 ### Alt-Azimuth (radial, outside-array only)
 
-A central 3D printed hub piece sits on top of the stand. Four M6 threaded rods thread into the hub and radiate outward in the right-hand-rule tetrahedral pattern. Each rod terminates in a gripper that holds a capsule.
+A central 3D printed hub piece sits on top of the stand. Four M6 threaded rods (*kierretanko*) thread into the hub and radiate outward in the right-hand-rule tetrahedral pattern. Each rod terminates in a gripper that holds a capsule.
 
 - **Use case:** recording the space around the array. The array sits in the room and looks outward at the scene.
 - **Source mode in plugin:** `Normal`.
@@ -37,7 +37,7 @@ A central 3D printed hub piece sits on top of the stand. Four M6 threaded rods t
 
 ### Stand-Mount (open tetrahedron, inside or outside)
 
-The Mic 3 piece sits at the bottom of the assembly and carries the stand-mount thread. The tetrahedron *builds upward* from the Mic 3 piece: aluminium rods connect the Mic 3 vertex to three upper vertex pieces, and additional rods connect the upper vertices to each other, forming the three upper edges of the tetrahedron. Mics 1, 2, and 4 sit on the upper vertices following the right-hand-rule layout (back/left, forward, and back/right respectively).
+The Mic 3 piece sits at the bottom of the assembly and carries the stand-mount thread. Mic 3 itself extends downward from this piece, pointing straight at the floor. The tetrahedron *builds upward* from the Mic 3 piece: aluminium rods connect the Mic 3 vertex to three upper vertex pieces, and additional rods connect the upper vertices to each other, forming the three upper edges of the tetrahedron. Mics 1, 2, and 4 sit on the upper vertices following the right-hand-rule layout (back/left, forward, and back/right respectively).
 
 The interior of the tetrahedron is hollow, which is what makes the inverse use case physically possible: you can place a source (a person, an instrument, a vibrating object) inside the array and record from four surrounding directions at once.
 
@@ -78,7 +78,7 @@ Because the gripper is a separate part, supporting a new microphone only require
 
 | Part | Purpose | Reference |
 | ---- | ------- | --------- |
-| M6 threaded rod, cut to length | Spokes from hub to capsule grippers | Any hardware store |
+| M6 threaded rod (*kierretanko*), cut to length | Spokes from hub to capsule grippers | Any hardware store |
 | Rubber nut set M6 | Secure the rods and grippers | [Motonet DZ Hardware M6 6-pack](https://www.motonet.fi/tuote/dz-hardware-kumimutterisarja-m6-6kpl?product=38-1504) |
 | KM 217 5/8" to 3/8" thread adapter | Mic stand connection | [Thomann KM 217](https://www.thomann.de/fi/km_217_reduziergewinde.htm) |
 | Clippy EM272Z1 capsules or EMI sensors | Audio/EM capture | — |
@@ -121,8 +121,9 @@ These mounts are proof of concept parts. They work, they have been used in real 
 
 - Wall thicknesses and stress relief are not yet tuned. Even in PETG, small drops can crack the parts.
 - The Stand-Mount design especially relies on thin connecting rods and should be handled gently.
+- No windshields yet. Wind noise is a real issue for outdoor recording with the current parts; windshield designs are on the roadmap for v2.
 - Array spacing currently requires cutting rods or tubes to length. A length-adjustable design for both arrays is on the roadmap for v2.
-- A v2 redesign focused on durability, assembly ergonomics, and easier spacing adjustment is planned.
+- A v2 redesign focused on durability, assembly ergonomics, easier spacing adjustment, and windshields is planned.
 
 Treat the current parts as a starting point. If you build with them, please feed back what breaks and how, so the v2 designs can address real failure modes rather than guessed ones.
 
@@ -144,6 +145,7 @@ The aim is to make the array geometries usable across whatever capsules or senso
 
 ## Coming later
 
+- Windshield designs for both array variants.
 - STLs for 8 capsule and 16 capsule spaced arrays (second and third order).
 - v2 redesigns of both current arrays with easier spacing adjustment.
 - Reference build guide with photos, full bill of materials, and tuned print settings.
