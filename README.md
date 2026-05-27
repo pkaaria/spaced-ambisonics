@@ -2,8 +2,8 @@
 
 A Reaper JSFX plugin for encoding a four channel spaced tetrahedral microphone array into AmbiX, first order through tenth order.
 
-> **Status:** alpha, Reaper only.
-> VST3, AU, and CLAP versions are on the roadmap. The JSFX is published now so the technique is available to anyone with Reaper while the cross-host plugins are in development.
+> **Status:** alpha, Reaper only, 4 channel input.
+> VST3, AU, and CLAP versions are on the roadmap, as are 8 and 16 channel input variants for second and third order arrays. The JSFX is published now so the technique is available to anyone with Reaper while the cross-host plugins are in development.
 
 ![screenshot of the plugin GUI](images/Plugin.png)
 
