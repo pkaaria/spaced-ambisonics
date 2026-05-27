@@ -14,7 +14,7 @@ A **triangular search coil** with a 1:1 audio transformer and balanced XLR outpu
 
 Four of these, mounted at the tetrahedral vertices of a spaced array and encoded with the plugin, produce a head-trackable spatial representation of the electromagnetic environment — the same rotate, decode, and binauralise workflow you would use with acoustic ambisonics.
 
-![photo of the EMI array](images/EMI.png)
+![photo of the EMI array](../../../../images/EMI.png)
 
 ---
 
