@@ -1,0 +1,18 @@
+# GitHub funding configuration
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
+
+ko_fi: pkaaria
+
+# Other supported keys, kept commented for future use:
+# github: [username]            # GitHub Sponsors
+# patreon: username
+# open_collective: username
+# tidelift: platform-name/package-name
+# community_bridge: project-name
+# liberapay: username
+# issuehunt: username
+# lfx_crowdfunding: project-name
+# polar: username
+# buy_me_a_coffee: username
+# thanks_dev: username
+# custom: ['https://example.com/donate', 'https://example.com/sponsor']
