@@ -33,7 +33,7 @@ A central 3D printed hub piece sits on top of the stand. Four M6 threaded rods (
 - **Source mode in plugin:** `Normal`.
 - **Robustness:** the load is distributed across four rods meeting at a solid hub. Sturdier than the Stand-Mount design and the more forgiving choice for travel or field work.
 - **Limitation:** the radial layout fills the centre of the array, so there is no usable interior space. This design cannot be used for inside-array (inverse) recording.
-- **Array spacing:** determined by the length of the threaded rods. Cut them to your desired spacing. A length-adjustable redesign (so spacing can be changed without cutting new rods) is planned for v2.
+- **Array spacing:** determined by the length of the threaded rods. Cut them to your desired spacing. A length-adjustable redesign is planned for v2.
 
 ### Stand-Mount (open tetrahedron, inside or outside)
 
@@ -60,7 +60,7 @@ STLs are in [`stl/grippers/clippy-em272z1/`](stl/grippers/clippy-em272z1/).
 
 ### Electromagnetic recording: EMI sensors
 
-The same array geometries can be used with electromagnetic interference (EMI) sensors in place of acoustic capsules. STLs for EMI sensor grippers are in [`stl/grippers/emi-mic/`](stl/grippers/emi-mic/).
+The same array geometries can be used with electromagnetic interference (EMI) sensors in place of acoustic capsules. STLs for EMI sensor grippers are in [`stl/grippers/emi-mic/`](stl/grippers/emi-mic/). For the full sensor build guide see [`stl/grippers/emi-mic/README.md`](stl/grippers/emi-mic/README.md).
 
 This opens the technique to **spatial electromagnetic field recording**: encoding the directionality of EM fields into ambisonic B-format, then rotating, decoding, or binauralising the result with the same plugin chain you'd use for acoustic ambisonics. The encoder doesn't care whether the four input signals come from pressure capsules or EM pickups; the geometry-driven encoding works identically either way.
 
