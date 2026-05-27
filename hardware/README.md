@@ -27,7 +27,7 @@ Both designs mount on a standard microphone stand, but the geometries and use ca
 
 ### Alt-Azimuth (radial, outside-array only)
 
-A central 3D printed hub piece sits on top of the stand. Four M6 threaded rods (*kierretanko*) thread into the hub and radiate outward in the right-hand-rule tetrahedral pattern. Each rod terminates in a gripper that holds a capsule.
+A central 3D printed hub piece sits on top of the stand. Four M6 threaded rods thread into the hub and radiate outward in the right-hand-rule tetrahedral pattern. Each rod terminates in a gripper that holds a capsule.
 
 - **Use case:** recording the space around the array. The array sits in the room and looks outward at the scene.
 - **Source mode in plugin:** `Normal`.
@@ -37,7 +37,7 @@ A central 3D printed hub piece sits on top of the stand. Four M6 threaded rods (
 
 ### Stand-Mount (open tetrahedron, inside or outside)
 
-The Mic 3 piece sits at the bottom of the assembly and carries the stand-mount thread. Mic 3 itself extends downward from this piece, pointing straight at the floor. The tetrahedron *builds upward* from the Mic 3 piece: aluminium rods connect the Mic 3 vertex to three upper vertex pieces, and additional rods connect the upper vertices to each other, forming the three upper edges of the tetrahedron. Mics 1, 2, and 4 sit on the upper vertices following the right-hand-rule layout (back/left, forward, and back/right respectively).
+The Mic 3 piece sits at the bottom of the assembly and carries the stand-mount thread. The tetrahedron *builds upward* from the Mic 3 piece: aluminium rods connect the Mic 3 vertex to three upper vertex pieces, and additional rods connect the upper vertices to each other, forming the three upper edges of the tetrahedron. Mics 1, 2, and 4 sit on the upper vertices following the right-hand-rule layout (back/left, forward, and back/right respectively).
 
 The interior of the tetrahedron is hollow, which is what makes the inverse use case physically possible: you can place a source (a person, an instrument, a vibrating object) inside the array and record from four surrounding directions at once.
 
@@ -78,7 +78,7 @@ Because the gripper is a separate part, supporting a new microphone only require
 
 | Part | Purpose | Reference |
 | ---- | ------- | --------- |
-| M6 threaded rod (*kierretanko*), cut to length | Spokes from hub to capsule grippers | Any hardware store |
+| M6 threaded rod, cut to length | Spokes from hub to capsule grippers | Any hardware store |
 | Rubber nut set M6 | Secure the rods and grippers | [Motonet DZ Hardware M6 6-pack](https://www.motonet.fi/tuote/dz-hardware-kumimutterisarja-m6-6kpl?product=38-1504) |
 | KM 217 5/8" to 3/8" thread adapter | Mic stand connection | [Thomann KM 217](https://www.thomann.de/fi/km_217_reduziergewinde.htm) |
 | Clippy EM272Z1 capsules or EMI sensors | Audio/EM capture | — |
