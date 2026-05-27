@@ -107,7 +107,8 @@ A central hub piece sits on top of the stand and four threaded rods radiate outw
 
 One capsule points straight down so the array can mount on a standard mic stand through the bottom capsule's holder. Geometry is the right-hand layout rotated so the middle finger axis is vertical.
 
-![photo of the Stand-Mount array on stand](images/stand-mount.png)
+![photo of the Stand-Mount array on stand](images/stand_mount_mounted_with_EMI_mics_attached.jpeg)
+![photo of the Stand-Mount array off stand](images/stand_mount_not_connected_to_stand.jpg)
 
 | Mic | Finger         | Direction        |
 | --- | -------------- | ---------------- |
@@ -171,9 +172,25 @@ For headtracking, place a separate rotator plugin *after* the encoder (IEM Scene
 
 ### Monitoring and decoding
 
-9. Route the ambisonics bus to a decoder on a downstream track or the master. IEM AllRADecoder and SPARTA AmbiBIN are good starting points for speaker and binaural decoding respectively.
+9. Route the ambisonics bus to a decoder track. IEM AllRADecoder and SPARTA AmbiBIN are good starting points for speaker and binaural decoding respectively.
 
-![screenshot of an example Reaper session](images/Reaper_Session.png)
+10. **Set the channel count on every track in the chain to match your target order.** This is one of the most common mistakes with ambisonics in Reaper. Every track the signal passes through — the ambisonics bus, any rotator track, and the decoder track — needs to be set to the same number of channels. Reaper defaults all new tracks to 2 channels, which silently drops everything above first order. The result sounds like a low quality mono-ish decode no matter what order you recorded in.
+
+    To set the channel count: left-click the number shown to the right of the track name (it says "2" by default). Change it to match your order:
+
+    | Order | Channels |
+    | ----- | -------- |
+    | 1oA   | 4        |
+    | 2oA   | 9        |
+    | 3oA   | 16       |
+    | 4oA   | 25       |
+    | 5oA   | 36       |
+    | 6oA   | 49       |
+    | 7oA   | 64       |
+
+    Do this for: the ambisonics bus track, any IEM SceneRotator or other rotator track, and the final decoder track. If any one of them is set too low, the higher order components are lost from that point onward and you will not get them back.
+
+![screenshot of an example Reaper session](images/Reaper%20Session.png)
 
 ## Technical notes
 
