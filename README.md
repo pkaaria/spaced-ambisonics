@@ -5,8 +5,7 @@ A Reaper JSFX plugin for encoding a four channel spaced tetrahedral microphone a
 > **Status:** alpha, Reaper only.
 > VST3, AU, and CLAP versions are on the roadmap. The JSFX is published now so the technique is available to anyone with Reaper while the cross-host plugins are in development.
 
-![screenshot of the plugin GUI](images/gui-overview.png)
-*screenshot placeholder: plugin GUI overview*
+![screenshot of the plugin GUI](images/Plugin.png)
 
 ## Contents
 
@@ -65,9 +64,14 @@ The plugin appears in the FX browser under JS as `SpacedTetraEncoder`. Place it 
 
 You need:
 
-- Four microphones with matched or known characteristics. The reference setup uses omnidirectional small-diaphragm capsules (specifically the Primo EM272Z1 in Clippy XLR housings, see [Hardware](#hardware-and-3d-printed-mounts)). Omnis are a natural fit for this technique because directional information is recovered from inter-capsule time and level differences rather than from the capsules' inherent directivity. Cardioid or sub-cardioid capsules work too; the encoder is pattern-agnostic, but the character of the result will shift.
-- A way to mount them in a tetrahedral arrangement. Two presets are included (see below), 3D printable mounts are in `hardware/`, and custom geometries are supported.
-- A four channel interface or some way to record four simultaneous channels to a multitrack file.
+- Four sensors with matched or known characteristics. The plugin is sensor-agnostic: any transducer that produces an audio-range signal and can be mounted at a tetrahedral vertex will work. Practical options include:
+  - **Acoustic microphones** — the reference setup uses omnidirectional small-diaphragm capsules (Primo EM272Z1 in Clippy XLR housings). Omnis are a natural fit because directional information comes from inter-capsule time and level differences rather than from capsule directivity. Cardioids work too; the character of the result shifts.
+  - **Electromagnetic (EMI) sensors** — hand-wound search coils for recording spatial EM fields. See [`hardware/stl/grippers/emi-mic/`](hardware/stl/grippers/emi-mic/) for the build guide.
+  - **Hydrophones** — for underwater spatial recording. Standard hydrophone output routes to a preamp input the same way as any other sensor.
+  - **Ultrasonic transducers** — for recording outside the audible band, useful for bat detection or material analysis. The encoder is sample-rate agnostic; run Reaper at the appropriate rate.
+  - **Any other sensor** that produces four channels of audio-range signal and can be physically mounted at the tetrahedral vertices.
+- A way to mount four sensors in a tetrahedral arrangement. Two presets are included (see below), 3D printable mounts are in `hardware/`, and custom geometries are supported.
+- A four channel interface suitable for your sensor type.
 
 Route the capsules to the plugin in this order:
 
@@ -84,23 +88,11 @@ Mic numbering for each preset is described below.
 
 The placement convention uses a right-hand mnemonic. Hold your right hand with thumb, index finger, and middle finger mutually perpendicular (like an x-y-z axis demo); the ring finger is treated as an implicit fourth direction. Each finger indicates the orientation of one capsule.
 
-## The two array designs
+### Alt-Azimuth (radial, stand-mounted from hub)
 
-Both designs mount on a standard microphone stand, but the geometries and use cases are different.
+A central hub piece sits on top of the stand and four threaded rods radiate outward from it. Use when you want a symmetric distribution and outside-array recording only.
 
-### Alt-Azimuth (radial, outside-array only)
-
-A central 3D printed hub piece sits on top of the stand. Four threaded rods thread into the hub and radiate outward in the right-hand-rule tetrahedral pattern. Each rod terminates in a gripper that holds a capsule.
-
-"Forward" is whatever you want the front of the recording to be (typically the subject).
-
-- **Use case:** recording the space around the array. The array sits in the room and looks outward at the scene.
-- **Source mode in plugin:** `Normal`.
-- **Robustness:** the load is distributed across four rods meeting at a solid hub. Sturdier than the Stand-Mount design and the more forgiving choice for travel or field work.
-- **Limitation:** the radial layout fills the centre of the array, so there is no usable interior space. This design cannot be used for inside-array (inverse) recording.
-
-![photo of the Alt-Azimuth array](images/array-alt-azimuth.jpg)
-*photo placeholder: Alt-Azimuth array assembled*
+![photo of the Alt-Azimuth array](images/alt-azimuth.png)
 
 | Mic | Finger         | Direction       |
 | --- | -------------- | --------------- |
@@ -109,18 +101,14 @@ A central 3D printed hub piece sits on top of the stand. Four threaded rods thre
 | 3   | middle         | left, down      |
 | 4   | ring (implied) | right, down     |
 
-### Stand-Mount (open tetrahedron, inside or outside)
+"Forward" is whatever you want the front of the recording to be (typically the subject).
 
-The Mic 3 piece sits at the bottom of the assembly and carries the stand-mount thread. Mic 3 itself extends downward from this piece, pointing straight at the floor. The tetrahedron *builds upward* from the Mic 3 piece: aluminium rods connect the Mic 3 vertex to three upper vertex pieces, and additional rods connect the upper vertices to each other, forming the three upper edges of the tetrahedron. Mics 1, 2, and 4 sit on the upper vertices following the right-hand-rule layout (back/left, forward, and back/right respectively).
+### Stand-Mount (Ch 3 down)
 
-The interior of the tetrahedron is hollow, which is what makes the inverse use case physically possible: you can place a source (a person, an instrument, a vibrating object) inside the array and record from four surrounding directions at once.
+One capsule points straight down so the array can mount on a standard mic stand through the bottom capsule's holder. Geometry is the right-hand layout rotated so the middle finger axis is vertical.
 
-- **Use case:** either recording the space around the array (outside-array) *or* recording a source placed inside the array (inside-array).
-- **Source mode in plugin:** `Normal` for outside-array, `Inverse` for inside-array.
-- **Robustness:** the tetrahedron is held together at the vertices by relatively thin aluminium rods, so this design is more fragile than the Alt-Azimuth and needs more care in handling.
-
-![photo of the Stand-Mount array](images/array-stand-mount.jpg)
-*photo placeholder: Stand-Mount array assembled*
+![photo of the Stand-Mount array on stand](images/stand_mount_mounted_with_EMI_mics_attached.jpeg)
+![photo of the Stand-Mount array off stand](images/stand_mount_not_connected_to_stand.jpg)
 
 | Mic | Finger         | Direction        |
 | --- | -------------- | ---------------- |
@@ -147,12 +135,11 @@ The parts are sized to fit small printers. The reference build was printed on a 
 
 A detailed print and build guide will be added to `hardware/` later. Until then: files are STL ready to slice, PETG is what they have been tested in, and assembly is by hand around the threaded rod.
 
-> **Version one caveat.** These mounts are proof of concept parts. They work, they have been used in real sessions, and they are good enough to start recording. They are not finished objects. Even printed in PETG the pieces are somewhat fragile, wall thicknesses and stress relief are not yet tuned. A v2 redesign focused on durability and assembly ergonomics is on the roadmap. Use the current files as a starting point and treat the parts gently.
+> **Version one caveat.** These mounts are proof of concept parts. They work, they have been used in real sessions, and they are good enough to start recording. They are not finished objects. Even printed in PETG the pieces are somewhat fragile, wall thicknesses and stress relief are not yet tuned, and small drops can crack them. A v2 redesign focused on durability and assembly ergonomics is on the roadmap. Use the current files as a starting point and treat the parts gently.
 
 ## Plugin controls
 
-![screenshot of the controls panel](images/controls-panel.png)
-*screenshot placeholder: controls panel*
+![screenshot of the controls panel](images/Plugin.png)
 
 | Control | Description |
 | ------- | ----------- |
@@ -169,15 +156,26 @@ For headtracking, place a separate rotator plugin *after* the encoder (IEM Scene
 
 ## Workflow in Reaper
 
-1. Record four channels, one per capsule, in the channel order above. Either four mono tracks or one four channel track works.
-2. If you used four mono tracks, route them into a four channel folder or bus.
-3. Insert `SpacedTetraEncoder` on the four channel track. Set the track channel count to at least the number of channels needed for your target order: 4 for 1oA, 9 for 2oA, 16 for 3oA, and so on up to 121 for 10oA.
-4. Set Array Preset and Source Mode to match how you recorded.
-5. Trim or mute individual capsules if needed.
-6. Send the encoded B-format to your decoder of choice (IEM, SPARTA, etc.) on a downstream track or master.
+### Session setup
 
-![screenshot of an example Reaper session](images/reaper-session-example.png)
-*screenshot placeholder: example Reaper session*
+1. Create four mono input tracks, one per sensor. Record-arm them and assign each to its interface channel.
+2. Add any input processing (EQ, high-pass filter, preamp trim) to these tracks. Use Reaper's track templates or the SWS extension's FX snapshot to make sure the same FX chain and settings go on all four tracks.
+3. **Disable "Master send" on all four input tracks.** Right-click the master send button on each track and turn it off, or go to track routing and uncheck "Master mix". The input tracks should feed only the ambisonics bus, not the master. Sending raw capsule signals to the master will play back as unencoded mono channels alongside the decoded output.
+4. Create a new track for the ambisonics bus. Set its channel count to at least the number of channels needed for your target order: 4 for 1oA, 9 for 2oA, 16 for 3oA, and so on up to 121 for 10oA.
+5. Route all four input tracks to this ambisonics bus via track routing (add receive from each input track).
+6. Insert `SpacedTetraEncoder` on the ambisonics bus track.
+
+### Encoding
+
+7. Set **Array Preset** and **Source Mode** on the encoder to match how you recorded.
+8. Use the per-channel trims or mutes if needed.
+
+### Monitoring and decoding
+
+9. Route the ambisonics bus to a decoder on a downstream track or the master. IEM AllRADecoder and SPARTA AmbiBIN are good starting points for speaker and binaural decoding respectively.
+
+![screenshot of an example Reaper session](images/Reaper_Session.png)
+
 
 ## Technical notes
 
@@ -221,7 +219,7 @@ Use it in commercial work. Attribution is appreciated but not required by the MI
 
 ## Support the project
 
-Development is carried by Calm Base Oy in Jyväskylä, Finland. The plugins are and will remain free and open source. Donations help fund hardware, build infrastructure, and continued development.
+Development is carried by [FILL legal entity] Oy in Jyväskylä, Finland. The plugins are and will remain free and open source. Donations help fund hardware, build infrastructure, and continued development.
 
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/pkaaria)
 
