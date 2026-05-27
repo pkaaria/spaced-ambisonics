@@ -190,7 +190,7 @@ For headtracking, place a separate rotator plugin *after* the encoder (IEM Scene
 
     Do this for: the ambisonics bus track, any IEM SceneRotator or other rotator track, and the final decoder track. If any one of them is set too low, the higher order components are lost from that point onward and you will not get them back.
 
-![screenshot of an example Reaper session](images/Reaper%20Session.png)
+![screenshot of an example Reaper session](images/Reaper_Session.png)
 
 ## Technical notes
 
