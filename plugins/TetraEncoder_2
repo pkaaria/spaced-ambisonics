@@ -1,0 +1,368 @@
+desc:Spaced Tetrahedral Ambisonic Encoder 10oA
+// =============================================================================
+// Spaced Tetrahedral Ambisonic Encoder
+// =============================================================================
+// 4 mono inputs -> ambisonic bus (1OA..10OA), ambiX (ACN+SN3D) by default
+//
+// Array presets:
+//
+//   STAND-MOUNT (Ch3 straight down, stand mounts from Ch3 side):
+//     Ch1 (Thumb)  : az +120  el +19.4712   (Back-Left-Up)
+//     Ch2 (Index)  : az    0  el +19.4712   (Forward-Up)
+//     Ch3 (Middle) : az    0  el -90        (Straight Down)
+//     Ch4 (Ring)   : az -120  el +19.4712   (Back-Right-Up)
+//
+//   ALT-AZIMUTH (upper pair front/back, lower pair left/right):
+//     Ch1 (Thumb)  : az +180  el +35.26     (Back-Up)
+//     Ch2 (Index)  : az    0  el +35.26     (Forward-Up)
+//     Ch3 (Middle) : az  +90  el -35.26     (Right-Down)
+//     Ch4 (Ring)   : az  -90  el -35.26     (Left-Down)
+//
+//   CUSTOM:
+//     User-defined per-channel azimuth and elevation via sliders.
+//
+// All three presets produce regular tetrahedra (pairwise dot product = -1/3).
+//
+// Source modes:
+//   Outside-In : virtual source placed at the mic's physical position
+//   Inside-Out : virtual source placed at the antipode (field radiates outward)
+//
+// Output channel count:
+//   1OA = 4,   2OA = 9,    3OA = 16,   4OA = 25,   5OA = 36,
+//   6OA = 49,  7OA = 64,   8OA = 81,   9OA = 100,  10OA = 121
+// Set the track to a matching channel count.
+//
+// NOTE on enum sliders: JSFX stores the 0-indexed position of the selected
+// dropdown entry regardless of declared min. `ambi_order = s_order + 1`.
+// =============================================================================
+
+in_pin:Mic 1 (Thumb)
+in_pin:Mic 2 (Index)
+in_pin:Mic 3 (Middle)
+in_pin:Mic 4 (Ring)
+
+out_pin:ACN 0 (W)
+out_pin:ACN 1 (Y)
+out_pin:ACN 2 (Z)
+out_pin:ACN 3 (X)
+out_pin:ACN 4 (V)
+out_pin:ACN 5 (T)
+out_pin:ACN 6 (R)
+out_pin:ACN 7 (S)
+out_pin:ACN 8 (U)
+out_pin:ACN 9 (Q)
+out_pin:ACN 10 (O)
+out_pin:ACN 11 (M)
+out_pin:ACN 12 (K)
+out_pin:ACN 13 (L)
+out_pin:ACN 14 (N)
+out_pin:ACN 15 (P)
+out_pin:ACN 16
+out_pin:ACN 17
+out_pin:ACN 18
+out_pin:ACN 19
+out_pin:ACN 20
+out_pin:ACN 21
+out_pin:ACN 22
+out_pin:ACN 23
+out_pin:ACN 24
+out_pin:ACN 25
+out_pin:ACN 26
+out_pin:ACN 27
+out_pin:ACN 28
+out_pin:ACN 29
+out_pin:ACN 30
+out_pin:ACN 31
+out_pin:ACN 32
+out_pin:ACN 33
+out_pin:ACN 34
+out_pin:ACN 35
+out_pin:ACN 36
+out_pin:ACN 37
+out_pin:ACN 38
+out_pin:ACN 39
+out_pin:ACN 40
+out_pin:ACN 41
+out_pin:ACN 42
+out_pin:ACN 43
+out_pin:ACN 44
+out_pin:ACN 45
+out_pin:ACN 46
+out_pin:ACN 47
+out_pin:ACN 48
+out_pin:ACN 49
+out_pin:ACN 50
+out_pin:ACN 51
+out_pin:ACN 52
+out_pin:ACN 53
+out_pin:ACN 54
+out_pin:ACN 55
+out_pin:ACN 56
+out_pin:ACN 57
+out_pin:ACN 58
+out_pin:ACN 59
+out_pin:ACN 60
+out_pin:ACN 61
+out_pin:ACN 62
+out_pin:ACN 63
+out_pin:ACN 64
+out_pin:ACN 65
+out_pin:ACN 66
+out_pin:ACN 67
+out_pin:ACN 68
+out_pin:ACN 69
+out_pin:ACN 70
+out_pin:ACN 71
+out_pin:ACN 72
+out_pin:ACN 73
+out_pin:ACN 74
+out_pin:ACN 75
+out_pin:ACN 76
+out_pin:ACN 77
+out_pin:ACN 78
+out_pin:ACN 79
+out_pin:ACN 80
+out_pin:ACN 81
+out_pin:ACN 82
+out_pin:ACN 83
+out_pin:ACN 84
+out_pin:ACN 85
+out_pin:ACN 86
+out_pin:ACN 87
+out_pin:ACN 88
+out_pin:ACN 89
+out_pin:ACN 90
+out_pin:ACN 91
+out_pin:ACN 92
+out_pin:ACN 93
+out_pin:ACN 94
+out_pin:ACN 95
+out_pin:ACN 96
+out_pin:ACN 97
+out_pin:ACN 98
+out_pin:ACN 99
+out_pin:ACN 100
+out_pin:ACN 101
+out_pin:ACN 102
+out_pin:ACN 103
+out_pin:ACN 104
+out_pin:ACN 105
+out_pin:ACN 106
+out_pin:ACN 107
+out_pin:ACN 108
+out_pin:ACN 109
+out_pin:ACN 110
+out_pin:ACN 111
+out_pin:ACN 112
+out_pin:ACN 113
+out_pin:ACN 114
+out_pin:ACN 115
+out_pin:ACN 116
+out_pin:ACN 117
+out_pin:ACN 118
+out_pin:ACN 119
+out_pin:ACN 120
+
+slider1:s_order=2<0,9,1{1st Order (4ch),2nd Order (9ch),3rd Order (16ch),4th Order (25ch),5th Order (36ch),6th Order (49ch),7th Order (64ch),8th Order (81ch),9th Order (100ch),10th Order (121ch)}>Ambisonic Order
+slider2:s_invert=0<0,1,1{Outside-In (normal),Inside-Out (inverted)}>Source Mode
+slider3:s_norm=0<0,1,1{SN3D (ambiX standard),N3D}>Normalization
+slider4:s_array=0<0,2,1{Stand-Mount (Ch3 down),Alt-Azimuth (front/back),Custom (use sliders below)}>Array Preset
+slider5:s_yaw=0<-180,180,0.01>Array Yaw (deg)
+slider6:s_pitch=0<-180,180,0.01>Array Pitch (deg)
+slider7:s_roll=0<-180,180,0.01>Array Roll (deg)
+slider9:s_gain=0<-24,24,0.01>Master Gain (dB)
+slider11:s_trim1=0<-12,12,0.01>Ch1 Trim (dB)
+slider12:s_trim2=0<-12,12,0.01>Ch2 Trim (dB)
+slider13:s_trim3=0<-12,12,0.01>Ch3 Trim (dB)
+slider14:s_trim4=0<-12,12,0.01>Ch4 Trim (dB)
+slider16:s_mute1=0<0,1,1{Active,Muted}>Ch1 Mute
+slider17:s_mute2=0<0,1,1{Active,Muted}>Ch2 Mute
+slider18:s_mute3=0<0,1,1{Active,Muted}>Ch3 Mute
+slider19:s_mute4=0<0,1,1{Active,Muted}>Ch4 Mute
+slider21:s_az1=120<-180,180,0.01>Custom Ch1 Az (deg)
+slider22:s_el1=19.4712<-90,90,0.01>Custom Ch1 El (deg)
+slider23:s_az2=0<-180,180,0.01>Custom Ch2 Az (deg)
+slider24:s_el2=19.4712<-90,90,0.01>Custom Ch2 El (deg)
+slider25:s_az3=0<-180,180,0.01>Custom Ch3 Az (deg)
+slider26:s_el3=-90<-90,90,0.01>Custom Ch3 El (deg)
+slider27:s_az4=-120<-180,180,0.01>Custom Ch4 Az (deg)
+slider28:s_el4=19.4712<-90,90,0.01>Custom Ch4 El (deg)
+
+@init
+DEG2RAD = $pi / 180;
+NSRC = 4;
+MAXCH = 121;
+
+// Memory layout
+src_x = 0;
+src_y = 4;
+src_z = 8;
+matrix = 16;
+
+// ----- Math helpers ---------------------------------------------------------
+function fact_fn(n) local(r, i)
+(
+  r = 1; i = 2;
+  while(i <= n) (r *= i; i += 1;);
+  r;
+);
+
+function alp(n, m, x) local(pmm, somx2, fac, pmm1, pll, ll)
+(
+  pmm = 1;
+  m > 0 ? (
+    somx2 = sqrt(max(0, (1 - x) * (1 + x)));
+    fac = 1;
+    loop(m,
+      pmm *= fac * somx2;
+      fac += 2;
+    );
+  );
+  n == m ? (
+    pmm;
+  ) : (
+    pmm1 = x * (2*m + 1) * pmm;
+    n == m + 1 ? (
+      pmm1;
+    ) : (
+      ll = m + 2;
+      while(ll <= n) (
+        pll = ((2*ll - 1) * x * pmm1 - (ll + m - 1) * pmm) / (ll - m);
+        pmm = pmm1;
+        pmm1 = pll;
+        ll += 1;
+      );
+      pll;
+    );
+  );
+);
+
+function real_sh_sn3d(n, m, az, el) local(am, leg, ang, norm)
+(
+  am = abs(m);
+  leg = alp(n, am, sin(el));
+  ang = m >= 0 ? cos(m * az) : sin(am * az);
+  norm = sqrt((m == 0 ? 1 : 2) * fact_fn(n - am) / fact_fn(n + am));
+  norm * leg * ang;
+);
+
+function rotate_pos(xp, yp, zp, yaw, pitch, roll)
+  local(cy, sy, cp, sp, cr, sr, x1, y1, z1, x2, y2, z2)
+(
+  cy = cos(yaw);   sy = sin(yaw);
+  cp = cos(pitch); sp = sin(pitch);
+  cr = cos(roll);  sr = sin(roll);
+
+  x1 = xp;
+  y1 = yp*cr - zp*sr;
+  z1 = yp*sr + zp*cr;
+
+  x2 = x1*cp + z1*sp;
+  y2 = y1;
+  z2 = -x1*sp + z1*cp;
+
+  rot_x = x2*cy - y2*sy;
+  rot_y = x2*sy + y2*cy;
+  rot_z = z2;
+);
+
+// ----- Geometry: place source unit vector from az/el -----------------------
+function set_src(i, az_deg, el_deg) local(az, el, ce)
+(
+  az = az_deg * DEG2RAD;
+  el = el_deg * DEG2RAD;
+  ce = cos(el);
+  src_x[i] = cos(az) * ce;
+  src_y[i] = sin(az) * ce;
+  src_z[i] = sin(el);
+);
+
+// ----- Load source positions based on selected preset ----------------------
+function load_array_preset()
+(
+  s_array == 0 ? (
+    // Stand-Mount: Ch3 straight down
+    set_src(0,  120,  19.4712);  // Thumb  | Back-Left-Up
+    set_src(1,    0,  19.4712);  // Index  | Forward-Up
+    set_src(2,    0, -90      );  // Middle | Straight Down
+    set_src(3, -120,  19.4712);  // Ring   | Back-Right-Up
+  ) : s_array == 1 ? (
+    // Alt-Azimuth: front/back upper pair, left/right lower pair
+    set_src(0,  180,  35.2644);    // Thumb  | Back-Up
+    set_src(1,    0,  35.2644);    // Index  | Forward-Up
+    set_src(2,   90, -35.2644);    // Middle | Right-Down
+    set_src(3,  -90, -35.2644);    // Ring   | Left-Down
+  ) : (
+    // Custom: user-defined per-channel
+    set_src(0, s_az1, s_el1);
+    set_src(1, s_az2, s_el2);
+    set_src(2, s_az3, s_el3);
+    set_src(3, s_az4, s_el4);
+  );
+);
+
+// ----- Build the encoding matrix --------------------------------------------
+function build_matrix()
+  local(src, n, m, acn, x, y, z, az, el, sh, n3d_scale, ambi_order)
+(
+  load_array_preset();
+  ambi_order = s_order + 1;
+  src = 0;
+  while(src < NSRC) (
+    rotate_pos(src_x[src], src_y[src], src_z[src],
+               s_yaw * DEG2RAD, s_pitch * DEG2RAD, s_roll * DEG2RAD);
+    x = rot_x; y = rot_y; z = rot_z;
+
+    s_invert ? (x = -x; y = -y; z = -z);
+
+    az = atan2(y, x);
+    el = asin(max(-1, min(1, z)));
+
+    n = 0;
+    while(n <= ambi_order) (
+      n3d_scale = s_norm == 1 ? sqrt(2*n + 1) : 1;
+      m = -n;
+      while(m <= n) (
+        acn = n*n + n + m;
+        sh = real_sh_sn3d(n, m, az, el) * n3d_scale;
+        matrix[src * MAXCH + acn] = sh;
+        m += 1;
+      );
+      n += 1;
+    );
+    src += 1;
+  );
+);
+
+build_matrix();
+
+@slider
+g1 = s_mute1 ? 0 : 10^(s_trim1 / 20);
+g2 = s_mute2 ? 0 : 10^(s_trim2 / 20);
+g3 = s_mute3 ? 0 : 10^(s_trim3 / 20);
+g4 = s_mute4 ? 0 : 10^(s_trim4 / 20);
+gain_lin = 10^(s_gain / 20);
+ambi_order = s_order + 1;
+n_active = (ambi_order + 1) * (ambi_order + 1);
+build_matrix();
+
+@sample
+in0 = spl0 * g1;
+in1 = spl1 * g2;
+in2 = spl2 * g3;
+in3 = spl3 * g4;
+
+ch = 0;
+while(ch < n_active) (
+  spl(ch) = gain_lin * (
+    in0 * matrix[0 * MAXCH + ch] +
+    in1 * matrix[1 * MAXCH + ch] +
+    in2 * matrix[2 * MAXCH + ch] +
+    in3 * matrix[3 * MAXCH + ch]
+  );
+  ch += 1;
+);
+while(ch < MAXCH) (
+  spl(ch) = 0;
+  ch += 1;
+);
