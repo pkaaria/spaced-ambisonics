@@ -19,18 +19,21 @@ hardware/
 
 A detailed print and build guide will be added here later. Until then this README covers enough to get a working array on a stand.
 
+---
+
 ## The two array designs
 
 Both designs mount on a standard microphone stand, but the geometries and use cases are different.
 
 ### Alt-Azimuth (radial, outside-array only)
 
-A central 3D printed hub piece sits on top of the stand. Four threaded rods (*kierretanko*) thread into the hub and radiate outward in the right-hand-rule tetrahedral pattern. Each rod terminates in a gripper that holds a capsule.
+A central 3D printed hub piece sits on top of the stand. Four M6 threaded rods (*kierretanko*) thread into the hub and radiate outward in the right-hand-rule tetrahedral pattern. Each rod terminates in a gripper that holds a capsule.
 
 - **Use case:** recording the space around the array. The array sits in the room and looks outward at the scene.
 - **Source mode in plugin:** `Normal`.
 - **Robustness:** the load is distributed across four rods meeting at a solid hub. Sturdier than the Stand-Mount design and the more forgiving choice for travel or field work.
 - **Limitation:** the radial layout fills the centre of the array, so there is no usable interior space. This design cannot be used for inside-array (inverse) recording.
+- **Array spacing:** determined by the length of the threaded rods. Cut them to your desired spacing. A length-adjustable redesign (so spacing can be changed without cutting new rods) is planned for v2.
 
 ### Stand-Mount (open tetrahedron, inside or outside)
 
@@ -41,6 +44,9 @@ The interior of the tetrahedron is hollow, which is what makes the inverse use c
 - **Use case:** either recording the space around the array (outside-array) *or* recording a source placed inside the array (inside-array).
 - **Source mode in plugin:** `Normal` for outside-array, `Inverse` for inside-array.
 - **Robustness:** the tetrahedron is held together at the vertices by relatively thin aluminium rods, so this design is more fragile than the Alt-Azimuth and needs more care in handling.
+- **Array spacing:** determined by the length of the aluminium tube sections. A design that allows easy spacing adjustment without cutting new tubes is planned for v2.
+
+---
 
 ## Microphone options
 
@@ -64,14 +70,34 @@ Practical uses include capturing the EM signatures of electronics, motors, power
 
 Because the gripper is a separate part, supporting a new microphone only requires designing a new gripper, not a new array. If you have CAD experience and a microphone you want to use, contributions are welcome. See [Swappable gripper concept](#swappable-gripper-concept) below.
 
+---
+
 ## What you'll need to source separately
 
-The STLs cover only the printed parts. To build a working array you'll also need:
+### Alt-Azimuth array
 
-- **Threaded rod (*kierretanko*)** for the Alt-Azimuth spokes, or aluminium rod stock for the Stand-Mount tetrahedron edges. Lengths depend on the array spacing you want.
-- **Four capsules or sensors.** Clippy EM272Z1 capsules for acoustic recording, EMI sensors for electromagnetic recording, or any other sensor for which you have (or design) a matching gripper.
-- **An audio interface** with enough channels for your sensor type. For acoustic capsules, four channels of low-noise mic preamp with phantom power if needed. For EMI sensors, four channels at line or instrument level depending on the sensor.
-- **A standard microphone stand** with the appropriate thread for the stand-mount piece. The thread can be reprinted with a different size if needed.
+| Part | Purpose | Reference |
+| ---- | ------- | --------- |
+| M6 threaded rod (*kierretanko*), cut to length | Spokes from hub to capsule grippers | Any hardware store |
+| Rubber nut set M6 | Secure the rods and grippers | [Motonet DZ Hardware M6 6-pack](https://www.motonet.fi/tuote/dz-hardware-kumimutterisarja-m6-6kpl?product=38-1504) |
+| KM 217 5/8" to 3/8" thread adapter | Mic stand connection | [Thomann KM 217](https://www.thomann.de/fi/km_217_reduziergewinde.htm) |
+| Clippy EM272Z1 capsules or EMI sensors | Audio/EM capture | — |
+| 4 channel audio interface | Recording | — |
+
+### Stand-Mount array
+
+| Part | Purpose | Reference |
+| ---- | ------- | --------- |
+| Aluminium tube 8 × 1 mm, cut to length | Tetrahedron edges | [Puuilo Warma anodised aluminium tube 8×1mm 2m](https://www.puuilo.fi/warma-alumiiniputki-anodisoitu-8x1mm-2m) |
+| M6 threaded rod, short sections | Holder to gripper connection | Any hardware store |
+| Rubber nut set M6 | Secure connections | [Motonet DZ Hardware M6 6-pack](https://www.motonet.fi/tuote/dz-hardware-kumimutterisarja-m6-6kpl?product=38-1504) |
+| KM 217 5/8" to 3/8" thread adapter | Mic stand connection | [Thomann KM 217](https://www.thomann.de/fi/km_217_reduziergewinde.htm) |
+| Clippy EM272Z1 capsules or EMI sensors | Audio/EM capture | — |
+| 4 channel audio interface | Recording | — |
+
+The reference links above are Finnish suppliers; equivalent parts are available from any hardware or music equipment supplier.
+
+---
 
 ## Print settings
 
@@ -87,15 +113,20 @@ Material and starting settings:
 
 These are starting points, not final tuned settings. If you find a configuration that prints reliably and survives field use, please open a pull request adding your notes to this README.
 
+---
+
 ## Version one caveat
 
 These mounts are proof of concept parts. They work, they have been used in real sessions, and they are good enough to start recording with. They are *not* finished objects.
 
 - Wall thicknesses and stress relief are not yet tuned. Even in PETG, small drops can crack the parts.
 - The Stand-Mount design especially relies on thin connecting rods and should be handled gently.
-- A v2 redesign focused on durability and assembly ergonomics is on the roadmap.
+- Array spacing currently requires cutting rods or tubes to length. A length-adjustable design for both arrays is on the roadmap for v2.
+- A v2 redesign focused on durability, assembly ergonomics, and easier spacing adjustment is planned.
 
 Treat the current parts as a starting point. If you build with them, please feed back what breaks and how, so the v2 designs can address real failure modes rather than guessed ones.
+
+---
 
 ## Swappable gripper concept
 
@@ -103,15 +134,17 @@ The piece that holds the sensor is separable from the piece that mounts to the r
 
 If you have CAD experience and a different sensor you want to use, contributions are welcome. Open a pull request with:
 
-- The new gripper STL (and source file, if you can share it).
+- The new gripper STL (and source file if you can share it).
 - A short note in this README listing which sensor the gripper fits.
 - Photos of the printed and assembled part if possible.
 
 The aim is to make the array geometries usable across whatever capsules or sensors people already own, rather than requiring everyone to converge on one specific microphone.
 
+---
+
 ## Coming later
 
 - STLs for 8 capsule and 16 capsule spaced arrays (second and third order).
-- v2 redesigns of both current arrays.
+- v2 redesigns of both current arrays with easier spacing adjustment.
 - Reference build guide with photos, full bill of materials, and tuned print settings.
 - A small community library of gripper end pieces for additional capsules and sensors.
