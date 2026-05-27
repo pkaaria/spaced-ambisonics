@@ -174,7 +174,7 @@ For headtracking, place a separate rotator plugin *after* the encoder (IEM Scene
 
 9. Route the ambisonics bus to a decoder track. IEM AllRADecoder and SPARTA AmbiBIN are good starting points for speaker and binaural decoding respectively.
 
-10. **Set the channel count on every track in the chain to match your target order.** This is one of the most common mistakes with ambisonics in Reaper. Every track the signal passes through — the ambisonics bus, any rotator track, and the decoder track — needs to be set to the same number of channels. Reaper defaults all new tracks to 2 channels, which silently drops everything above first order. The result sounds like a low quality mono-ish decode no matter what order you recorded in.
+10. **Set the channel count on every track in the chain to match your target order.** This is one of the most common mistakes with ambisonics in Reaper. Every track the signal passes through — the ambisonics bus, any rotator track, and the decoder track — needs to be set to the same number of channels. Reaper defaults all new tracks to 2 channels, which silently drops the ambisonic signal entirely — 1oA alone needs 4 channels minimum. The result sounds like a low quality mono-ish decode no matter what order you recorded in.
 
     To set the channel count: left-click the number shown to the right of the track name (it says "2" by default). Change it to match your order:
 
