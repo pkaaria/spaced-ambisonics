@@ -6,6 +6,7 @@ A Reaper JSFX plugin for encoding a four channel spaced tetrahedral microphone a
 > VST3, AU, and CLAP versions are on the roadmap. The JSFX is published now so the technique is available to anyone with Reaper while the cross-host plugins are in development.
 
 ![screenshot of the plugin GUI](images/gui-overview.png)
+*screenshot placeholder: plugin GUI overview*
 
 ## Contents
 
@@ -150,7 +151,8 @@ A detailed print and build guide will be added to `hardware/` later. Until then:
 
 ## Plugin controls
 
-![screenshot of the controls panel](images/gui_overview.png)
+![screenshot of the controls panel](images/controls-panel.png)
+*screenshot placeholder: controls panel*
 
 | Control | Description |
 | ------- | ----------- |
@@ -175,6 +177,7 @@ For headtracking, place a separate rotator plugin *after* the encoder (IEM Scene
 6. Send the encoded B-format to your decoder of choice (IEM, SPARTA, etc.) on a downstream track or master.
 
 ![screenshot of an example Reaper session](images/reaper-session-example.png)
+*screenshot placeholder: example Reaper session*
 
 ## Technical notes
 
