@@ -2,15 +2,15 @@
 
 Instructions for building the electromagnetic pickup sensors used with the spaced tetrahedral array. One sensor per channel; you need four for a complete array.
 
-These sensors are search coils: loops of wire wound around a square former that respond to changing magnetic fields. Connected to a balanced transformer and XLR output, they plug directly into a standard mic preamp input. No phantom power needed or wanted.
+These sensors are search coils: loops of wire wound around posts on a triangular former that respond to changing magnetic fields. Connected to a balanced transformer and XLR output, they plug directly into a standard mic preamp input. No phantom power needed or wanted.
 
-The 3D printed parts in this folder (the gripper) attach the finished sensor to the threaded rod of either array design. See the main [hardware README](../../README.md) for array assembly.
+The 3D printed parts in this folder attach the finished sensor to the threaded rod of either array design. See the main [hardware README](../../README.md) for array assembly.
 
 ---
 
 ## What you are building
 
-A **square search coil** with a 1:1 audio transformer and balanced XLR output. The coil picks up changing electromagnetic fields in the plane of the square. Winding coils around each corner section and across the centre gives the sensor sensitivity to field variations across its face rather than just a single average.
+A **triangular search coil** with a 1:1 audio transformer and balanced XLR output. The former has ten winding posts arranged in a triangular grid: one post at each corner of the triangle, two posts along each side between the corners, and one post at the centre. Each post gets 40 turns of wire, wound in a continuous run from the first corner post through to the centre.
 
 Four of these, mounted at the tetrahedral vertices of a spaced array and encoded with the plugin, produce a head-trackable spatial representation of the electromagnetic environment — the same rotate, decode, and binauralise workflow you would use with acoustic ambisonics.
 
@@ -21,117 +21,140 @@ Four of these, mounted at the tetrahedral vertices of a spaced array and encoded
 | Part | Notes |
 | ---- | ----- |
 | Enamel coated copper wire, 0.2 mm | [Example: Amazon DE round copper magnetic wire 0.2 mm](https://www.amazon.de/-/en/Enamel-Round-Copper-Magnetic-0-2mm/dp/B0868H4Q8K) |
-| Audio transformer 600:600 Ω | Reference: ETAL 600/600 or equivalent 1:1 600 Ω audio transformer |
+| ETAL P1200 transformer | 1:1, 600 Ω line matching transformer. Available from Farnell, Mouser, Newark. |
 | XLR connector, male | Standard 3-pin |
-| The 3D printed former | `EMI_Front.stl` and `EMI_Back.stl` from this folder |
+| 3D printed former (front) | `EMI_Front.stl` from this folder |
+| 3D printed back plate | `EMI_Back.stl` from this folder |
 | Double-sided tape | To bond front and back pieces |
-| M6 rubber nut | To attach back piece to threaded rod (same as rest of array) |
+| M6 rubber nut | To attach back piece to threaded rod (same hardware as rest of array) |
 | Soldering iron and solder | — |
-| Heat shrink or electrical tape | Insulation on joins |
+| Heat shrink or electrical tape | For insulation on joins |
+
+---
+
+## The winding former
+
+`EMI_Front.stl` is a roughly triangular plate with ten cylindrical posts. Looking at the front face:
+
+```
+         [C1]
+       [S1a] [S1b]
+     [C2] [M] [C3]
+   [S2a] [S2b] [S3a] [S3b]
+
+  (not to scale — triangle with 3 corners,
+   2 side posts per side, 1 centre post)
+```
+
+More precisely, the ten posts are:
+
+| Post | Position |
+| ---- | -------- |
+| C1 | Corner 1 |
+| S1a, S1b | Two posts along the side between C1 and C2 |
+| C2 | Corner 2 |
+| S2a, S2b | Two posts along the side between C2 and C3 |
+| C3 | Corner 3 |
+| S3a, S3b | Two posts along the side between C3 and C1 |
+| M | Centre post |
 
 ---
 
 ## Winding the coil
 
-The printed front piece (`EMI_Front.stl`) is the coil former. It has a square perimeter with defined corner sections and a centre post.
+Use a single continuous length of 0.2 mm enamel copper wire for the whole coil.
 
-**Leave a 5 cm tail of wire free at the start.** This becomes one lead of the coil; you will solder it to the transformer at the end.
+**Leave a 5 cm tail of wire free at the start.** This becomes one lead; you will solder it to the transformer at the end. Hold or tape the tail to the back of the former to keep it out of the way while winding.
 
-Wind each section as follows, working clockwise around the perimeter:
+Wind each post in order, 40 turns clockwise, moving clockwise around the perimeter:
 
-1. **Corner 1:** 40 turns clockwise around the corner section.
-2. **Corner 2 (next clockwise corner):** 40 turns clockwise.
-3. **Corner 3:** 40 turns clockwise.
-4. **Corner 4:** 40 turns clockwise.
-5. **Centre section:** 40 turns around the centre post.
+1. **C1** (first corner) — 40 turns clockwise
+2. **S1a** — 40 turns clockwise
+3. **S1b** — 40 turns clockwise
+4. **C2** (next corner, clockwise) — 40 turns clockwise
+5. **S2a** — 40 turns clockwise
+6. **S2b** — 40 turns clockwise
+7. **C3** (next corner) — 40 turns clockwise
+8. **S3a** — 40 turns clockwise
+9. **S3b** — 40 turns clockwise
+10. **M** (centre post) — 40 turns clockwise
 
-Keep winding tension consistent and the turns tight and even. The wire is 0.2 mm so it is fragile; do not pull hard enough to stretch or kink it.
+After the centre post, leave another 5 cm tail free. This is the second lead.
 
-When done, leave another 5 cm tail free. This is the second lead.
-
-You now have two leads coming from the coil: the starting tail and the finishing tail.
+Keep winding tension consistent and the turns tight and even. 0.2 mm wire is fragile; do not pull hard enough to stretch or kink it. Pass the wire between posts along the back face of the former to keep the front face clear.
 
 ---
 
 ## Assembly: front and back pieces
 
-The back piece (`EMI_Back.stl`) serves two purposes: it covers and protects the coil windings, and it carries the M6 rubber nut mount that attaches the sensor to the threaded rod.
+`EMI_Back.stl` is a flat back plate that covers and protects the windings and carries the M6 rubber nut mount for attaching to the threaded rod.
 
 1. Route both wire leads through the holes in the front piece to the back side.
 2. Attach the back piece to the front using **double-sided tape**. Press firmly and allow to seat.
-3. The two wire leads should now exit from the back, where you have room to work.
+3. Both wire leads exit from the back, where you have room to work.
 
 ---
 
 ## Transformer wiring
 
-The transformer converts the high-impedance unbalanced coil output to a balanced low-impedance signal suitable for a mic preamp input.
+The ETAL P1200 converts the coil's output to a balanced signal suitable for a mic preamp.
 
 **Coil side (primary):**
 - Solder one wire lead to one primary terminal.
 - Solder the other wire lead to the other primary terminal.
-- Polarity determines phase; as long as all four sensors in the array are wired the same way, absolute polarity does not matter.
+- Polarity determines phase; as long as all four sensors in the array are wired the same way, absolute polarity does not matter. Be consistent.
 
 **XLR side (secondary):**
 
 | Transformer secondary | XLR pin |
 | --------------------- | ------- |
-| Terminal A            | Pin 2   |
-| Terminal B            | Pin 3   |
-| Shield / screen       | Pin 1 (XLR end only) |
+| Terminal A | Pin 2 |
+| Terminal B | Pin 3 |
+| Shield / screen | Pin 1 (XLR end only) |
 
-The transformer secondary **floats at the transformer end** — do not connect the shield to the transformer chassis or secondary winding. The shield connects to pin 1 at the XLR connector only. This is standard practice for a balanced EMI pickup and keeps hum out of the signal path.
+The transformer secondary **floats at the transformer end** — do not connect the shield to the transformer body or secondary winding. Shield connects to pin 1 at the XLR plug only. This keeps hum out of the signal path.
 
 ---
 
-## Connection to the array
+## Connecting to the array
 
-The back piece has the same M6 rubber nut attachment as the rest of the array hardware. Thread it onto the M6 rod at the appropriate vertex position following the array preset layout described in the main plugin [README](../../../../README.md).
+Thread the M6 rubber nut on the back plate onto the M6 rod at the appropriate vertex position, following the array preset layout in the plugin [README](../../../../README.md).
 
-Connect each sensor to one channel of your audio interface. Channel assignment follows the same mic numbering as the acoustic version:
+Channel assignment follows the same mic numbering as the acoustic version:
 
 | Array position | Interface channel | Plugin channel |
 | -------------- | ----------------- | -------------- |
-| Mic 1          | Ch 1              | Ch 1           |
-| Mic 2          | Ch 2              | Ch 2           |
-| Mic 3          | Ch 3              | Ch 3           |
-| Mic 4          | Ch 4              | Ch 4           |
+| Mic 1 | Ch 1 | Ch 1 |
+| Mic 2 | Ch 2 | Ch 2 |
+| Mic 3 | Ch 3 | Ch 3 |
+| Mic 4 | Ch 4 | Ch 4 |
 
-Set input gain to match signal levels across all four sensors. The channel trim controls in the plugin can compensate for small differences between sensors.
-
----
-
-## Interface and gain settings
-
-EMI search coils produce a low-level signal, typically in the range of a dynamic microphone or lower depending on field strength. Use a clean mic preamp input with no phantom power. Phantom power will not damage the transformer but it is unnecessary and adds noise risk through any wiring imperfection.
-
-If the signal is too low even at maximum gain, you can increase the number of turns (more turns = higher output voltage, higher impedance). If it is too high and clipping, reduce turns or add a pad.
+Use the per-channel trim controls in the plugin to compensate for level differences between sensors.
 
 ---
 
-## Notes on sensor orientation
+## Gain and interface settings
 
-The sensor is most sensitive to magnetic fields **perpendicular to the plane of the coil** (passing through the face of the square). Fields parallel to the coil face produce little response. This is analogous to how a figure-eight microphone has a null axis.
+EMI search coils produce a low-level signal, roughly in the range of a passive dynamic microphone. Use a clean mic preamp input with phantom power **off**. Phantom power will not damage the P1200 transformer but is unnecessary and adds noise risk.
 
-In the tetrahedral array, the four sensors are oriented at the tetrahedral angles, so their sensitive axes point in four different directions. The plugin encodes the differences between them spatially, the same way it does for acoustic capsules.
+If signal is too low even at maximum gain, increase turn count on the next build (more turns = higher output voltage). If clipping, reduce turns or add a pad.
+
+---
+
+## Sensor orientation
+
+The sensor is most sensitive to magnetic fields **perpendicular to the face of the former** (passing straight through it). Fields parallel to the face produce little response. In the tetrahedral array the four sensors face different directions, so the plugin can encode the field directionality spatially.
 
 ---
 
 ## Version one notes
 
-These are hand-wound prototype sensors. Winding consistency between sensors affects matching. If one channel is significantly louder or quieter than the others, use the per-channel trim in the plugin to compensate.
+These are hand-wound prototype sensors. Consistency between the four sensors matters; winding the same number of turns at the same tension keeps the four channels well matched. Use the per-channel trims in the plugin to compensate for any remaining differences.
 
-A v2 sensor design with a more repeatable winding former and a cleaner back-plate with integrated transformer mounting is on the roadmap.
+A v2 design with a more repeatable winding former and integrated transformer housing is on the roadmap.
 
 ---
 
 ## Contributing variations
 
-If you experiment with different:
-
-- Turn counts
-- Wire gauges
-- Former sizes
-- Transformers
-
-and get results worth sharing, open a pull request with your notes added to this file. Include what you changed and what effect it had on output level, frequency response, or noise floor if you measured them.
+If you experiment with different turn counts, wire gauges, former sizes, or transformers and get results worth sharing, open a pull request with your notes added to this file. Include what changed and what effect it had on output level, frequency response, or noise floor.
