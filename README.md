@@ -107,8 +107,7 @@ A central hub piece sits on top of the stand and four threaded rods radiate outw
 
 One capsule points straight down so the array can mount on a standard mic stand through the bottom capsule's holder. Geometry is the right-hand layout rotated so the middle finger axis is vertical.
 
-![photo of the Stand-Mount array on stand](images/stand_mount_mounted_with_EMI_mics_attached.jpeg)
-![photo of the Stand-Mount array off stand](images/stand_mount_not_connected_to_stand.jpg)
+![photo of the Stand-Mount array on stand](images/stand-mount.png)
 
 | Mic | Finger         | Direction        |
 | --- | -------------- | ---------------- |
