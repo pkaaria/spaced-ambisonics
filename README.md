@@ -159,7 +159,7 @@ For headtracking, place a separate rotator plugin *after* the encoder (IEM Scene
 ### Session setup
 
 1. Create four mono input tracks, one per sensor. Record-arm them and assign each to its interface channel.
-2. Add any input processing (EQ, high-pass filter, preamp trim) to these tracks. Use Reaper's track templates or the SWS extension's FX snapshot to make sure the same FX chain and settings go on all four tracks.
+2. Add any input processing to these tracks: EQ, high-pass filter, preamp trim, reverb, convolution, pitch, distortion, or any other effect. Creative processing is fine and can produce interesting spatial results once encoded. Two rules: keep each track **mono** (no stereo wideners or mid-side processing), and apply **identical settings to all four tracks** so the spatial encoding stays coherent. Use Reaper's track templates or the SWS extension's FX snapshot to copy the chain across all four.
 3. **Disable "Master send" on all four input tracks.** Right-click the master send button on each track and turn it off, or go to track routing and uncheck "Master mix". The input tracks should feed only the ambisonics bus, not the master. Sending raw capsule signals to the master will play back as unencoded mono channels alongside the decoded output.
 4. Create a new track for the ambisonics bus. Set its channel count to at least the number of channels needed for your target order: 4 for 1oA, 9 for 2oA, 16 for 3oA, and so on up to 121 for 10oA.
 5. Route all four input tracks to this ambisonics bus via track routing (add receive from each input track).
@@ -174,7 +174,7 @@ For headtracking, place a separate rotator plugin *after* the encoder (IEM Scene
 
 9. Route the ambisonics bus to a decoder on a downstream track or the master. IEM AllRADecoder and SPARTA AmbiBIN are good starting points for speaker and binaural decoding respectively.
 
-![screenshot of an example Reaper session](images/Reaper_Session.png)
+![screenshot of an example Reaper session](images/Reaper%20Session.png)
 
 
 ## Technical notes
@@ -221,9 +221,9 @@ Use it in commercial work. Attribution is appreciated but not required by the MI
 
 Development is carried by [FILL legal entity] Oy in Jyväskylä, Finland. The plugins are and will remain free and open source. Donations help fund hardware, build infrastructure, and continued development.
 
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/pkaaria)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/[FILL])
 
 ## Credits
 
-- Pyry Kääriä
+- [FILL author(s)]
 - Thanks to the wider open source ambisonic community for the tools and documentation that make work like this possible, particularly the IEM and SPARTA groups.
