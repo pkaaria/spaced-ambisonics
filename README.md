@@ -176,7 +176,6 @@ For headtracking, place a separate rotator plugin *after* the encoder (IEM Scene
 
 ![screenshot of an example Reaper session](images/Reaper%20Session.png)
 
-
 ## Technical notes
 
 - **Channel ordering:** ACN (AmbiX).
@@ -203,6 +202,7 @@ For headtracking, place a separate rotator plugin *after* the encoder (IEM Scene
   - 16 channel input variant for third order spaced arrays.
 - **Hardware**
   - v2 mount redesign with better durability and assembly.
+  - Windshields for all array variants (currently absent from v1).
   - STLs for 8 capsule and 16 capsule arrays.
   - Reference build guide with bill of materials and print settings.
   - Community submitted gripper end pieces for additional microphones.
