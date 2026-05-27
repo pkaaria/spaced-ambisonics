@@ -173,7 +173,7 @@ For headtracking, place a separate rotator plugin *after* the encoder (IEM Scene
 
 9. Route the ambisonics bus to a decoder on a downstream track or the master. IEM AllRADecoder and SPARTA AmbiBIN are good starting points for speaker and binaural decoding respectively.
 
-![screenshot of an example Reaper session](images/Reaper%20Session.png)
+![screenshot of an example Reaper session](images/Reaper_Session.png)
 
 ## Technical notes
 
