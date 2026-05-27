@@ -35,6 +35,8 @@ A central 3D printed hub piece sits on top of the stand. Four M6 threaded rods (
 - **Limitation:** the radial layout fills the centre of the array, so there is no usable interior space. This design cannot be used for inside-array (inverse) recording.
 - **Array spacing:** determined by the length of the threaded rods. Cut them to your desired spacing. A length-adjustable redesign is planned for v2.
 
+![assembled alt-azimuth ](/../images/alt-azimuth.png)
+
 ### Stand-Mount (open tetrahedron, inside or outside)
 
 The Mic 3 piece sits at the bottom of the assembly and carries the stand-mount thread. Mic 3 itself extends downward from this piece, pointing straight at the floor. The tetrahedron *builds upward* from the Mic 3 piece: aluminium rods connect the Mic 3 vertex to three upper vertex pieces, and additional rods connect the upper vertices to each other, forming the three upper edges of the tetrahedron. Mics 1, 2, and 4 sit on the upper vertices following the right-hand-rule layout (back/left, forward, and back/right respectively).
@@ -45,6 +47,8 @@ The interior of the tetrahedron is hollow, which is what makes the inverse use c
 - **Source mode in plugin:** `Normal` for outside-array, `Inverse` for inside-array.
 - **Robustness:** the tetrahedron is held together at the vertices by relatively thin aluminium rods, so this design is more fragile than the Alt-Azimuth and needs more care in handling.
 - **Array spacing:** determined by the length of the aluminium tube sections. A design that allows easy spacing adjustment without cutting new tubes is planned for v2.
+
+![assembled stand mount](/../images/stand-mount.png)
 
 ---
 
