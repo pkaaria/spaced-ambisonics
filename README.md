@@ -219,7 +219,7 @@ Use it in commercial work. Attribution is appreciated but not required by the MI
 
 ## Support the project
 
-Development is carried by Calm Base Oy in Jyväskylä, Finland. The plugins are and will remain free and open source. Donations help fund hardware, build infrastructure, and continued development.
+Development is carried by Calm Base Oy in Jyväskylä, Finland. The plugins are and will remain free and open source. If the tools are useful to you, consider supporting the project to help fund hardware, build infrastructure, and continued development.
 
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/pkaaria)
 
