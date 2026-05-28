@@ -109,7 +109,7 @@ If you prefer to build the session by hand:
 8. Use per-channel trims or mutes as needed.
 9. Route the bus to a decoder on a downstream track or the master. IEM AllRADecoder and SPARTA AmbiBIN are good starting points for speaker and binaural decoding respectively. Set the decoder track to the same channel count as the bus.
 
-![screenshot of an example Reaper session](../images/Reaper%20Session.png)
+![screenshot of an example Reaper session](../images/Reaper_Session.png)
 
 ---
 
