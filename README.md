@@ -140,7 +140,7 @@ If neither preset matches your rig, set **Array Preset** to Custom in the encode
 
 STL files for both array presets are in [`hardware/`](hardware/). The current designs are built around:
 
-- A central threaded rod  acting as the structural spine.
+- A central piece that holds threaded rods acting as the structural spine OR corner pieces attached using aluminium rods leaving an empty central area. 
 - Per-capsule holder pieces that thread onto the rod and grip the microphone.
 - A removable end piece that does the actual gripping, separate from the rod-mount piece.
 
