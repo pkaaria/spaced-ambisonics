@@ -31,7 +31,7 @@ Both designs mount on a standard microphone stand, but the geometries and use ca
   <tr>
      <td align="center">
       <img src="../images/alt-azimuth.png" alt="photo of the Alt-Azimuth" width="100%"><br>
-      <em>Alt-Azimuth — "Normal" Ambisonics</em>
+      <em>"Normal" Ambisonics</em>
     </td>
        <td align="center">
       <img src="../images/EMI.png" alt="photo of the EMI" width="100%"><br>
@@ -54,7 +54,7 @@ A central 3D printed hub piece sits on top of the stand. Four M6 threaded rods (
   <tr>
      <td align="center">
       <img src="../images/stand-mount.png" alt="photo of the Stand-Mount" width="100%"><br>
-      <em>Alt-Azimuth — ""Inverse" Ambisonics</em>
+      <em>"Inverse" Ambisonics</em>
     </td>
        <td align="center">
       <img src="../images/EMI2.png" alt="photo of the EMI" width="100%"><br>
