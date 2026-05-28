@@ -1,6 +1,6 @@
 # Spaced Ambisonics
 
-Open source plugins and hardware for spaced tetrahedral ambisonic recording. A workflow that recaptures the spaciousness of spaced omnidirectional microphone techniques inside a fully rotatable, decoder-agnostic, head-trackable ambisonic pipeline.
+Open source plugins and hardware for spaced tetrahedral ambisonic recording. A workflow that recaptures the spaciousness of spaced microphone techniques inside a fully rotatable, decoder-agnostic, sensor-agnostic, head-trackable ambisonic pipeline.
 
 > **Status:** alpha, Reaper only, 4 channel input.
 > VST3, AU, and CLAP versions are on the roadmap, as are 8 and 16 channel input variants for second and third order arrays. The JSFX is published now so the technique is available to anyone with Reaper while the cross-host plugins are in development.
