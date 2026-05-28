@@ -7,14 +7,18 @@ Open source plugins and hardware for spaced tetrahedral ambisonic recording. A w
 
 <p align="center">
   <img src="images/stand-mount.png" alt="photo of the Stand-Mount" width="45%">
+  <figcaption>Fig.1 - "Inverse" Ambisonics</figcaption>
   &nbsp;&nbsp;
   <img src="images/alt-azimuth.png" alt="photo of the Alt-Azimuth" width="45%">
+  <figcaption>Fig.1 - "Normal" Ambisonics</figcaption>
 </p>
 
 <p align="center">
   <img src="images/EMI.png" alt="photo of the EMI" width="45%">
+  <figcaption>Fig.1 - Elecromagnetic Ambisonics</figcaption>
   &nbsp;&nbsp;
   <img src="images/Plugin.png" alt="photo of the plugin" class="center" width="45%">
+  <figcaption>Fig.1 - TetraEncoder Plugin</figcaption>
 </p>
 
 ## Contents
