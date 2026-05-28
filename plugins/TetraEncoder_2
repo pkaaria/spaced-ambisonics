@@ -6,13 +6,13 @@ desc:Spaced Tetrahedral Ambisonic Encoder 10oA
 //
 // Array presets:
 //
-//   STAND-MOUNT (Ch3 straight down, stand mounts from Ch3 side):
+//   PYRAMID (Ch3 straight down, stand mounts from Ch3 side):
 //     Ch1 (Thumb)  : az +120  el +19.4712   (Back-Left-Up)
 //     Ch2 (Index)  : az    0  el +19.4712   (Forward-Up)
 //     Ch3 (Middle) : az    0  el -90        (Straight Down)
 //     Ch4 (Ring)   : az -120  el +19.4712   (Back-Right-Up)
 //
-//   ALT-AZIMUTH (upper pair front/back, lower pair left/right):
+//   STAR (upper pair front/back, lower pair left/right):
 //     Ch1 (Thumb)  : az +180  el +35.26     (Back-Up)
 //     Ch2 (Index)  : az    0  el +35.26     (Forward-Up)
 //     Ch3 (Middle) : az  +90  el -35.26     (Right-Down)
@@ -166,7 +166,7 @@ out_pin:ACN 120
 slider1:s_order=2<0,9,1{1st Order (4ch),2nd Order (9ch),3rd Order (16ch),4th Order (25ch),5th Order (36ch),6th Order (49ch),7th Order (64ch),8th Order (81ch),9th Order (100ch),10th Order (121ch)}>Ambisonic Order
 slider2:s_invert=0<0,1,1{Outside-In (normal),Inside-Out (inverted)}>Source Mode
 slider3:s_norm=0<0,1,1{SN3D (ambiX standard),N3D}>Normalization
-slider4:s_array=0<0,2,1{Stand-Mount (Ch3 down),Alt-Azimuth (front/back),Custom (use sliders below)}>Array Preset
+slider4:s_array=0<0,2,1{Pyramid (Ch3 down),Star (radial hub),Custom (use sliders below)}>Array Preset
 slider5:s_yaw=0<-180,180,0.01>Array Yaw (deg)
 slider6:s_pitch=0<-180,180,0.01>Array Pitch (deg)
 slider7:s_roll=0<-180,180,0.01>Array Roll (deg)
@@ -281,17 +281,17 @@ function set_src(i, az_deg, el_deg) local(az, el, ce)
 function load_array_preset()
 (
   s_array == 0 ? (
-    // Stand-Mount: Ch3 straight down
+    // Pyramid: Ch3 straight down, stand mounts from Ch3 side
     set_src(0,  120,  19.4712);  // Thumb  | Back-Left-Up
     set_src(1,    0,  19.4712);  // Index  | Forward-Up
     set_src(2,    0, -90      );  // Middle | Straight Down
     set_src(3, -120,  19.4712);  // Ring   | Back-Right-Up
   ) : s_array == 1 ? (
-    // Alt-Azimuth: front/back upper pair, left/right lower pair
-    set_src(0,  180,  35.2644);    // Thumb  | Back-Up
-    set_src(1,    0,  35.2644);    // Index  | Forward-Up
-    set_src(2,   90, -35.2644);    // Middle | Right-Down
-    set_src(3,  -90, -35.2644);    // Ring   | Left-Down
+    // Star: upper pair front/back, lower pair left/right, radial hub
+    set_src(0,  180,  35.2644);  // Thumb  | Back-Up
+    set_src(1,    0,  35.2644);  // Index  | Forward-Up
+    set_src(2,   90, -35.2644);  // Middle | Right-Down
+    set_src(3,  -90, -35.2644);  // Ring   | Left-Down
   ) : (
     // Custom: user-defined per-channel
     set_src(0, s_az1, s_el1);
