@@ -30,11 +30,11 @@ Both designs mount on a standard microphone stand, but the geometries and use ca
 <table align="center">
   <tr>
      <td align="center">
-      <img src="images/alt-azimuth.png" alt="photo of the Alt-Azimuth" width="100%"><br>
+      <img src="../images/alt-azimuth.png" alt="photo of the Alt-Azimuth" width="100%"><br>
       <em>Alt-Azimuth — "Normal" Ambisonics</em>
     </td>
        <td align="center">
-      <img src="images/EMI.png" alt="photo of the EMI" width="100%"><br>
+      <img src="../images/EMI.png" alt="photo of the EMI" width="100%"><br>
       <em>Electromagnetic Ambisonics</em>
     </td>
   </tr>
