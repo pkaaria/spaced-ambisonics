@@ -27,7 +27,18 @@ Both designs mount on a standard microphone stand, but the geometries and use ca
 
 ### Alt-Azimuth (radial, outside-array only)
 
-![assembled alt-azimuth ](../images/alt-azimuth.png)
+<table align="center">
+  <tr>
+     <td align="center">
+      <img src="images/alt-azimuth.png" alt="photo of the Alt-Azimuth" width="100%"><br>
+      <em>Alt-Azimuth — "Normal" Ambisonics</em>
+    </td>
+       <td align="center">
+      <img src="images/EMI.png" alt="photo of the EMI" width="100%"><br>
+      <em>Electromagnetic Ambisonics</em>
+    </td>
+  </tr>
+</table>
 
 A central 3D printed hub piece sits on top of the stand. Four M6 threaded rods (*kierretanko*) thread into the hub and radiate outward in the right-hand-rule tetrahedral pattern. Each rod terminates in a gripper that holds a capsule.
 
