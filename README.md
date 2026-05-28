@@ -6,6 +6,10 @@ Open source plugins and hardware for spaced tetrahedral ambisonic recording. A w
 > VST3, AU, and CLAP versions are on the roadmap, as are 8 and 16 channel input variants for second and third order arrays. The JSFX is published now so the technique is available to anyone with Reaper while the cross-host plugins are in development.
 
 ![photo of the Stand-Mount array on stand](images/stand-mount.png)
+![screenshot of the plugin GUI](images/Plugin.png)
+<img src="images/stand-mount.png" alt="photo of the Stand-Mount" width="50%">
+<img src="images/alt-mount.png" alt="photo of the Alt-Mount" width="50%">
+<img src="images/plugin.png" alt="photo of the plugin" width="50%">
 
 ## Contents
 
