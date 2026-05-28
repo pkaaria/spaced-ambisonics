@@ -12,7 +12,9 @@ Open source plugins and hardware for spaced tetrahedral ambisonic recording. A w
 </p>
 
 <p align="center">
-  <img src="images/Plugin.png" alt="photo of the plugin" class="center" width="50%">
+  <img src="images/Plugin.png" alt="photo of the plugin" class="center" width="45%">
+  &nbsp;&nbsp;
+  <img src="images/EMI.png" alt="photo of the EMI" width="45%">
 </p>
 
 ## Contents
