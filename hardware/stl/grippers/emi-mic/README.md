@@ -68,7 +68,9 @@ Use a single continuous length of 0.2 mm enamel copper wire for the whole coil.
 
 **Leave a 5 cm tail of wire free at the start.** This becomes one lead; you will solder it to the transformer at the end. Hold or tape the tail to the back of the former to keep it out of the way while winding.
 
-Wind each post in order, 40 turns clockwise, moving clockwise around the perimeter:
+> **The order in which you wind the posts does not affect the result.** What matters is that every post gets 40 turns wound in the same direction (clockwise as viewed from the front face). Work your way around in whichever path feels natural — the example sequence below is one approach, not a requirement.
+
+Wind each post 40 turns clockwise. One natural path is to work clockwise around the perimeter and finish with the centre:
 
 1. **C1** (first corner) — 40 turns clockwise
 2. **S1a** — 40 turns clockwise
