@@ -9,11 +9,11 @@ Open source plugins and hardware for spaced tetrahedral ambisonic recording. A w
   <tr>
     <td align="center">
       <img src="images/stand-mount.png" alt="photo of the Stand-Mount" width="100%"><br>
-      <em>Stand-Mount — "Inverse" Ambisonics</em>
+      <em>"Inverse" Ambisonics</em>
     </td>
     <td align="center">
       <img src="images/alt-azimuth.png" alt="photo of the Alt-Azimuth" width="100%"><br>
-      <em>Alt-Azimuth — "Normal" Ambisonics</em>
+      <em>"Normal" Ambisonics</em>
     </td>
   </tr>
   <tr>
