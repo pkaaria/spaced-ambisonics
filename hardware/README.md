@@ -35,7 +35,7 @@ Both designs mount on a standard microphone stand, but the geometries and use ca
     </td>
        <td align="center">
       <img src="../images/EMI.png" alt="photo of the EMI" width="100%"><br>
-      <em>Electromagnetic Ambisonics</em>
+      <em>"Normal" Electromagnetic Ambisonics</em>
     </td>
   </tr>
 </table>
@@ -50,7 +50,18 @@ A central 3D printed hub piece sits on top of the stand. Four M6 threaded rods (
 
 ### Stand-Mount (open tetrahedron, inside or outside)
 
-![assembled stand mount](../images/stand-mount.png)
+<table align="center">
+  <tr>
+     <td align="center">
+      <img src="../images/stand-mount.png" alt="photo of the Stand-Mount" width="100%"><br>
+      <em>Alt-Azimuth — ""Inverse" Ambisonics</em>
+    </td>
+       <td align="center">
+      <img src="../images/EMI2.png" alt="photo of the EMI" width="100%"><br>
+      <em>"Inverse" Electromagnetic Ambisonics</em>
+    </td>
+  </tr>
+</table>
 
 The Mic 3 piece sits at the bottom of the assembly and carries the stand-mount thread. Mic 3 itself extends downward from this piece, pointing straight at the floor. The tetrahedron *builds upward* from the Mic 3 piece: aluminium rods connect the Mic 3 vertex to three upper vertex pieces, and additional rods connect the upper vertices to each other, forming the three upper edges of the tetrahedron. Mics 1, 2, and 4 sit on the upper vertices following the right-hand-rule layout (back/left, forward, and back/right respectively).
 
