@@ -55,7 +55,7 @@ local MIC_NAMES = {
 -- Step 1: Order
 -- -----------------------------------------------------------------------
 local retval1, order_str = reaper.GetUserInputs(
-  "Spaced Ambisonics Setup (1/3)  |  1=4ch  2=9ch  3=16ch  4=25ch  5=36ch  6=49ch  7=64ch",
+  " -: Spaced Ambisonics Setup (1/3) :- |  1=4ch  2=9ch  3=16ch  4=25ch  5=36ch  6=49ch  7=64ch",
   1,
   "Order (1-7):,extrakeywords",
   "3"
@@ -74,9 +74,9 @@ local num_channels = (order + 1) * (order + 1)
 -- Step 2: Preset and source mode
 -- -----------------------------------------------------------------------
 local retval2, csv = reaper.GetUserInputs(
-  "Spaced Ambisonics Setup (2/3)",
+  "-: Spaced Ambisonics Setup (2/3) :-",
   2,
-  "Preset  (1=Pyramid  2=Star):,Source  (1=Normal  2=Inverse/inside array):,extrakeywords",
+  "Preset  (1=Pyramid  2=Star):,Source  (1=Normal  2=Inverse):,extrakeywords",
   "1,1"
 )
 if not retval2 then return end
@@ -106,10 +106,10 @@ local mode_label   = invert_val == 0 and "Normal" or "Inverse"
 -- Step 3: Arm input tracks
 -- -----------------------------------------------------------------------
 local retval3, arm_str = reaper.GetUserInputs(
-  "Spaced Ambisonics Setup (3/3)",
+  "-: Spaced Ambisonics Setup (3/3) :-",
   1,
-  "Arm input tracks for recording?  (1=No  2=Yes):,extrakeywords",
-  "1"
+  "Arm tracks?  (1=Yes  2=No):,extrakeywords",
+  "2"
 )
 if not retval3 then return end
 
@@ -119,7 +119,7 @@ if not arm_num or (arm_num ~= 1 and arm_num ~= 2) then
   return
 end
 
-local arm_tracks = arm_num == 2
+local arm_tracks = arm_num == 1
 
 -- -----------------------------------------------------------------------
 -- Build the session
